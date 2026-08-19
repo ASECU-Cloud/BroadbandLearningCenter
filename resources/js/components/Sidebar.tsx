@@ -45,10 +45,11 @@ export default function Sidebar() {
                         <Link
                             key={item.label}
                             href={item.href}
-                            className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${isActive
-                                ? 'bg-slate-800 text-white shadow-sm'
-                                : 'text-slate-300 hover:bg-slate-800/80 hover:text-white'
-                                }`}
+                            className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
+                                isActive
+                                    ? 'bg-slate-800 text-white shadow-sm'
+                                    : 'text-slate-300 hover:bg-slate-800/80 hover:text-white'
+                            }`}
                         >
                             <span>{item.label}</span>
                             {isActive ? (
