@@ -389,7 +389,7 @@ export default function VisitorPage() {
                             </div>
                         ) : null}
 
-                        <main>
+                        <main className="py-6 pr-6">
                             <header className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                                 <div>
                                     <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
@@ -418,8 +418,11 @@ export default function VisitorPage() {
                                     </button>
                                 </div>
                             </header>
-
+                            <div className="mb-1 text-lg font-semibold text-slate-700">
+                                {new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                            </div>
                             <div className="mb-4 grid gap-3 md:grid-cols-5">
+
                                 {sessionOptions.map((session) => {
                                     const sessionVisitors =
                                         filteredVisitors.filter(
@@ -435,13 +438,12 @@ export default function VisitorPage() {
                                     return (
                                         <div
                                             key={session}
-                                            className={`rounded-2xl border p-3 ${
-                                                hasVisitors
-                                                    ? hasPhoto
-                                                        ? 'border-emerald-200 bg-emerald-50'
-                                                        : 'border-amber-200 bg-amber-50'
-                                                    : 'border-slate-200 bg-slate-50'
-                                            }`}
+                                            className={`rounded-2xl border p-3 ${hasVisitors
+                                                ? hasPhoto
+                                                    ? 'border-emerald-200 bg-emerald-50'
+                                                    : 'border-amber-200 bg-amber-50'
+                                                : 'border-slate-200 bg-slate-50'
+                                                }`}
                                         >
                                             <p className="text-[11px] font-semibold tracking-[0.2em] text-slate-500 uppercase">
                                                 {session}

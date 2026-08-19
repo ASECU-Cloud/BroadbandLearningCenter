@@ -169,7 +169,7 @@ export default function DashboardPage() {
                 <div className="grid gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
                     <Sidebar />
 
-                    <main>
+                    <main className="py-6 pr-6">
                         <header className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                             <div>
                                 <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
@@ -209,7 +209,60 @@ export default function DashboardPage() {
                                 </div>
                             ))}
                         </section>
+                        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                            <div className="mb-3 flex items-center justify-between gap-2">
+                                <div>
+                                    <h2 className="text-base font-semibold">
+                                        Monitoring Status
+                                    </h2>
+                                    <p className="text-[11px] text-slate-500">
+                                        Session activity and photo upload
+                                    </p>
+                                </div>
+                                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
+                                    5 sessions
+                                </span>
+                            </div>
 
+                            <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
+                                {sessionSummary.map(
+                                    ({
+                                        session,
+                                        activeCount,
+                                        photoCount,
+                                        hasActivity,
+                                        tone,
+                                        statusText,
+                                    }) => (
+                                        <div
+                                            key={session}
+                                            className={`flex min-h-18.5 flex-col justify-between rounded-xl border p-2 ${tone}`}
+                                        >
+                                            <div className="flex items-center justify-between gap-2">
+                                                <p className="text-[10px] font-semibold tracking-[0.2em] text-slate-500 uppercase">
+                                                    {session}
+                                                </p>
+                                                <span
+                                                    className={`h-2 w-2 rounded-full ${hasActivity ? (photoCount > 0 ? 'bg-emerald-500' : 'bg-amber-500') : 'bg-slate-400'}`}
+                                                />
+                                            </div>
+                                            <p className="text-sm font-semibold text-slate-800">
+                                                {hasActivity
+                                                    ? `${activeCount + photoCount} updates`
+                                                    : 'No visitor'}
+                                            </p>
+                                            <p
+                                                className={`text-[10px] ${hasActivity ? 'text-emerald-700' : 'text-slate-500'}`}
+                                            >
+                                                {hasActivity
+                                                    ? `${statusText} • ${activeCount} active • ${photoCount} photo`
+                                                    : statusText}
+                                            </p>
+                                        </div>
+                                    ),
+                                )}
+                            </div>
+                        </section>
                         <section className="mt-8 grid gap-6 xl:grid-cols-[1fr_2fr]">
                             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                                 <div className="mb-5 flex items-center justify-between">
@@ -226,7 +279,7 @@ export default function DashboardPage() {
                                     </span> */}
                                 </div>
 
-                                <div className="flex h-52 items-end gap-3 rounded-xl bg-slate-50 p-3">
+                                <div className="flex h-51 items-end gap-3 rounded-xl bg-slate-50 p-3">
                                     {activity.map((bar) => (
                                         <div
                                             key={bar.name}
@@ -248,8 +301,8 @@ export default function DashboardPage() {
                                 </div>
                             </div>
 
-                            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-                                <div className="overflow-x-auto rounded-xl border border-slate-100 bg-slate-50/60">
+                            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                                <div className="flex flex-1 items-center overflow-x-auto rounded-xl border border-slate-100 bg-slate-50/60 p-3">
                                     <table className="min-w-full border-separate border-spacing-y-1 text-left text-xs">
                                         <thead>
                                             <tr>
@@ -320,61 +373,6 @@ export default function DashboardPage() {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </section>
-
-                        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                            <div className="mb-3 flex items-center justify-between gap-2">
-                                <div>
-                                    <h2 className="text-base font-semibold">
-                                        Monitoring Status
-                                    </h2>
-                                    <p className="text-[11px] text-slate-500">
-                                        Session activity and photo upload
-                                    </p>
-                                </div>
-                                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
-                                    5 sessions
-                                </span>
-                            </div>
-
-                            <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
-                                {sessionSummary.map(
-                                    ({
-                                        session,
-                                        activeCount,
-                                        photoCount,
-                                        hasActivity,
-                                        tone,
-                                        statusText,
-                                    }) => (
-                                        <div
-                                            key={session}
-                                            className={`flex min-h-18.5 flex-col justify-between rounded-xl border p-2 ${tone}`}
-                                        >
-                                            <div className="flex items-center justify-between gap-2">
-                                                <p className="text-[10px] font-semibold tracking-[0.2em] text-slate-500 uppercase">
-                                                    {session}
-                                                </p>
-                                                <span
-                                                    className={`h-2 w-2 rounded-full ${hasActivity ? (photoCount > 0 ? 'bg-emerald-500' : 'bg-amber-500') : 'bg-slate-400'}`}
-                                                />
-                                            </div>
-                                            <p className="text-sm font-semibold text-slate-800">
-                                                {hasActivity
-                                                    ? `${activeCount + photoCount} updates`
-                                                    : 'No visitor'}
-                                            </p>
-                                            <p
-                                                className={`text-[10px] ${hasActivity ? 'text-emerald-700' : 'text-slate-500'}`}
-                                            >
-                                                {hasActivity
-                                                    ? `${statusText} • ${activeCount} active • ${photoCount} photo`
-                                                    : statusText}
-                                            </p>
-                                        </div>
-                                    ),
-                                )}
                             </div>
                         </section>
 
