@@ -15,11 +15,11 @@ const stats = [
 ];
 
 const activity = [
-    { name: 'Mon', value: 45 },
-    { name: 'Tue', value: 62 },
-    { name: 'Wed', value: 54 },
-    { name: 'Thu', value: 76 },
-    { name: 'Fri', value: 68 },
+    { name: 'Mon', value: 5 },
+    { name: 'Tue', value: 2 },
+    { name: 'Wed', value: 4 },
+    { name: 'Thu', value: 6 },
+    { name: 'Fri', value: 8 },
 ];
 
 // const recentOrders = [
@@ -123,44 +123,9 @@ const getSessionStatus = (active: boolean, photo: boolean) => {
     };
 };
 
-const sessionSummary = sessionLabels.map((session, index) => {
-    const sessionEntries = monitoringMatrix
-        .flatMap((day) =>
-            day.sessions.map((entry, sessionIndex) => ({
-                active: entry.active,
-                photo: entry.photo,
-                sessionIndex,
-            })),
-        )
-        .filter((entry) => entry.sessionIndex === index);
 
-    const activeCount = sessionEntries.filter((entry) => entry.active).length;
-    const photoCount = sessionEntries.filter((entry) => entry.photo).length;
-    const hasActivity = activeCount > 0 || photoCount > 0;
 
-    return {
-        session,
-        activeCount,
-        photoCount,
-        hasActivity,
-        tone: hasActivity
-            ? photoCount > 0
-                ? 'border-emerald-200 bg-emerald-50'
-                : 'border-amber-200 bg-amber-50'
-            : 'border-slate-200 bg-slate-50',
-        statusText: hasActivity
-            ? photoCount > 0
-                ? 'Photo uploaded'
-                : 'Active'
-            : 'No visitor',
-    };
-});
 
-// const teamMembers = [
-//     { name: "Ava Thompson", role: "Product lead", stat: "94%" },
-//     { name: "Liam Chen", role: "Support", stat: "87%" },
-//     { name: "Emma Flores", role: "Sales", stat: "91%" },
-// ];
 
 export default function DashboardPage() {
     return (
@@ -209,11 +174,11 @@ export default function DashboardPage() {
                                 </div>
                             ))}
                         </section>
-                        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        {/* <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                             <div className="mb-3 flex items-center justify-between gap-2">
                                 <div>
                                     <h2 className="text-base font-semibold">
-                                        Monitoring Status
+                                        Today's Monitoring Status
                                     </h2>
                                     <p className="text-[11px] text-slate-500">
                                         Session activity and photo upload
@@ -262,7 +227,7 @@ export default function DashboardPage() {
                                     ),
                                 )}
                             </div>
-                        </section>
+                        </section> */}
                         <section className="mt-8 grid gap-6 xl:grid-cols-[1fr_2fr]">
                             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                                 <div className="mb-5 flex items-center justify-between">
@@ -376,46 +341,7 @@ export default function DashboardPage() {
                             </div>
                         </section>
 
-                        {/* <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                            <div className="mb-4 flex items-center justify-between">
-                                <h2 className="text-lg font-semibold">Recent Orders</h2>
-                                <button className="text-sm font-medium text-slate-600 hover:text-slate-900">View all</button>
-                            </div>
 
-                            <div className="overflow-x-auto">
-                                <table className="min-w-full text-left">
-                                    <thead>
-                                        <tr className="border-b border-slate-200 text-sm text-slate-500">
-                                            <th className="pb-3 font-medium">Order</th>
-                                            <th className="pb-3 font-medium">Customer</th>
-                                            <th className="pb-3 font-medium">Amount</th>
-                                            <th className="pb-3 font-medium">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {recentOrders.map((order) => (
-                                            <tr key={order.id} className="border-b border-slate-100 text-sm last:border-0">
-                                                <td className="py-3 font-medium text-slate-800">{order.id}</td>
-                                                <td className="py-3 text-slate-600">{order.client}</td>
-                                                <td className="py-3 text-slate-800">{order.amount}</td>
-                                                <td className="py-3">
-                                                    <span
-                                                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${order.status === "Paid"
-                                                            ? "bg-emerald-500/10 text-emerald-600"
-                                                            : order.status === "Pending"
-                                                                ? "bg-amber-500/10 text-amber-600"
-                                                                : "bg-sky-500/10 text-sky-600"
-                                                            }`}
-                                                    >
-                                                        {order.status}
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </section> */}
                     </main>
                 </div>
             </div>
