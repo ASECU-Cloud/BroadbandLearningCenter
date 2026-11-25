@@ -2,7 +2,6 @@ import { router, useForm } from '@inertiajs/react';
 import type { FormEvent, ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 
-import Sidebar from '@/components/Sidebar';
 import {
     destroyExam,
     destroyQuestion,
@@ -12,6 +11,7 @@ import {
     updateExam,
     updateQuestion,
 } from '@/actions/App/Http/Controllers/UjianController';
+import Sidebar from '@/components/Sidebar';
 
 type Category = {
     id: number;
