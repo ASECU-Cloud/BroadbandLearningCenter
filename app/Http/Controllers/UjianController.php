@@ -34,10 +34,12 @@ class UjianController extends Controller
                     'category_id' => $question->category_id,
                     'category_name' => $question->category->name,
                     'question_text' => $question->question_text,
-                    'option_a' => $question->option_a,
-                    'option_b' => $question->option_b,
-                    'option_c' => $question->option_c,
-                    'option_d' => $question->option_d,
+                    'options' => [
+                        ['key' => 'a', 'text' => $question->option_a],
+                        ['key' => 'b', 'text' => $question->option_b],
+                        ['key' => 'c', 'text' => $question->option_c],
+                        ['key' => 'd', 'text' => $question->option_d],
+                    ],
                     'correct_option' => $question->correct_option,
                     'image_url' => $question->image_path
                         ? Storage::disk('public')->url($question->image_path)

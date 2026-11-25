@@ -95,11 +95,11 @@ export default function Activity() {
                 <div className="grid gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
                     <Sidebar />
 
-                    <main className="min-h-screen min-w-0 bg-slate-50 px-4 py-8 sm:px-6 lg:px-8">
+                    <main className="min-h-screen min-w-0  py-6 pr-6  ">
                         <div className="mx-auto max-w-7xl">
                             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                                 <div>
-                                    <p className="text-sm font-medium text-indigo-600">
+                                    <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
                                         Monitoring
                                     </p>
                                     <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
@@ -243,16 +243,16 @@ export default function Activity() {
                                             )}
                                             {filteredActivities.length ===
                                                 0 && (
-                                                <tr>
-                                                    <td
-                                                        colSpan={5}
-                                                        className="px-6 py-12 text-center text-sm text-slate-500"
-                                                    >
-                                                        No activity records
-                                                        match your search.
-                                                    </td>
-                                                </tr>
-                                            )}
+                                                    <tr>
+                                                        <td
+                                                            colSpan={5}
+                                                            className="px-6 py-12 text-center text-sm text-slate-500"
+                                                        >
+                                                            No activity records
+                                                            match your search.
+                                                        </td>
+                                                    </tr>
+                                                )}
                                         </tbody>
                                     </table>
                                 </div>

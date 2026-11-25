@@ -16,7 +16,7 @@ const stats = [
 
 const activity = [
     { name: 'Mon', value: 5 },
-    { name: 'Tue', value: 2 },
+    { name: 'Tue', value: 0 },
     { name: 'Wed', value: 4 },
     { name: 'Thu', value: 6 },
     { name: 'Fri', value: 8 },
@@ -122,10 +122,6 @@ const getSessionStatus = (active: boolean, photo: boolean) => {
         dot: 'bg-slate-400',
     };
 };
-
-
-
-
 
 export default function DashboardPage() {
     return (
@@ -244,22 +240,17 @@ export default function DashboardPage() {
                                     </span> */}
                                 </div>
 
-                                <div className="flex h-51 items-end gap-3 rounded-xl bg-slate-50 p-3">
-                                    {activity.map((bar) => (
+                                <div className="grid grid-cols-5 gap-2 rounded-xl bg-slate-50 p-3">
+                                    {activity.map((day) => (
                                         <div
-                                            key={bar.name}
-                                            className="flex flex-1 flex-col items-center justify-end gap-2"
+                                            key={day.name}
+                                            className="flex min-h-32 flex-col items-center justify-center gap-2 rounded-lg bg-white"
                                         >
-                                            <div
-                                                className="min-h-6 w-full rounded-t-xl bg-linear-to-t from-sky-600 to-violet-500 shadow-sm"
-                                                style={{
-                                                    height: `${Math.max(bar.value * 2.2, 32)}px`,
-                                                    maxHeight: '100%',
-                                                }}
-                                                title={`${bar.name}: ${bar.value}`}
-                                            />
+                                            <span className="text-2xl font-bold text-slate-800">
+                                                {day.value > 0 ? day.value : '-'}
+                                            </span>
                                             <span className="text-xs text-slate-500">
-                                                {bar.name}
+                                                {day.name}
                                             </span>
                                         </div>
                                     ))}
@@ -340,8 +331,6 @@ export default function DashboardPage() {
                                 </div>
                             </div>
                         </section>
-
-
                     </main>
                 </div>
             </div>

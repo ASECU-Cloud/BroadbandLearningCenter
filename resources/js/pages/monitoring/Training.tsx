@@ -138,10 +138,10 @@ export default function Training() {
                 <div className="grid gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
                     <Sidebar />
 
-                    <main className="min-h-screen min-w-0 bg-slate-50 p-4 text-slate-900 sm:p-6 lg:p-8">
+                    <main className="min-h-screen min-w-0  py-6 pr-6 text-slate-900 ">
                         <div className="mx-auto max-w-7xl">
                             <header className="mb-6">
-                                <p className="mb-1 text-sm font-medium text-slate-500">
+                                <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
                                     Monitoring
                                 </p>
                                 <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">

@@ -2,6 +2,7 @@ import { router, useForm } from '@inertiajs/react';
 import type { FormEvent, ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 
+import Sidebar from '@/components/Sidebar';
 import {
     destroyExam,
     destroyQuestion,
@@ -11,7 +12,6 @@ import {
     updateExam,
     updateQuestion,
 } from '@/actions/App/Http/Controllers/UjianController';
-import Sidebar from '@/components/Sidebar';
 
 type Category = {
     id: number;
@@ -267,11 +267,11 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
             <div className="grid gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
                 <Sidebar />
 
-                <main className="min-h-screen min-w-0 bg-slate-50 p-4 sm:p-6 lg:p-8">
+                <main className="min-h-screen min-w-0  py-6 pr-6 ">
                     <div className="mx-auto max-w-7xl">
                         <header className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                             <div>
-                                <p className="text-sm font-medium text-indigo-600">
+                                <p className="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase">
                                     Monitoring
                                 </p>
                                 <h1 className="mt-1 text-3xl font-semibold tracking-tight text-slate-900">
@@ -342,11 +342,10 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
                                             setActiveTab('questions');
                                             setQuery('');
                                         }}
-                                        className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
-                                            activeTab === 'questions'
-                                                ? 'bg-white text-slate-900 shadow-sm'
-                                                : 'text-slate-500 hover:text-slate-700'
-                                        }`}
+                                        className={`rounded-md px-4 py-2 text-sm font-semibold transition ${activeTab === 'questions'
+                                            ? 'bg-white text-slate-900 shadow-sm'
+                                            : 'text-slate-500 hover:text-slate-700'
+                                            }`}
                                     >
                                         Bank soal
                                     </button>
@@ -358,11 +357,10 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
                                             setActiveTab('exams');
                                             setQuery('');
                                         }}
-                                        className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
-                                            activeTab === 'exams'
-                                                ? 'bg-white text-slate-900 shadow-sm'
-                                                : 'text-slate-500 hover:text-slate-700'
-                                        }`}
+                                        className={`rounded-md px-4 py-2 text-sm font-semibold transition ${activeTab === 'exams'
+                                            ? 'bg-white text-slate-900 shadow-sm'
+                                            : 'text-slate-500 hover:text-slate-700'
+                                            }`}
                                     >
                                         Daftar ujian
                                     </button>
@@ -440,7 +438,7 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
 
                             {activeTab === 'questions' ? (
                                 <div className="divide-y divide-slate-100">
-                                    {filteredQuestions.map((question) => (
+                                    {filteredQuestions?.map((question) => (
                                         <article
                                             key={question.id}
                                             className="flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:justify-between"
@@ -468,18 +466,17 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
                                                         {question.question_text}
                                                     </h2>
                                                     <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                                                        {question.options.map(
+                                                        {question?.options?.map(
                                                             (option) => (
                                                                 <p
                                                                     key={
                                                                         option.key
                                                                     }
-                                                                    className={`rounded-md px-3 py-2 text-sm ${
-                                                                        option.key ===
+                                                                    className={`rounded-md px-3 py-2 text-sm ${option.key ===
                                                                         question.correct_option
-                                                                            ? 'bg-emerald-50 font-medium text-emerald-800'
-                                                                            : 'bg-slate-50 text-slate-600'
-                                                                    }`}
+                                                                        ? 'bg-emerald-50 font-medium text-emerald-800'
+                                                                        : 'bg-slate-50 text-slate-600'
+                                                                        }`}
                                                                 >
                                                                     <span className="mr-2 font-semibold uppercase">
                                                                         {
@@ -650,9 +647,9 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
                                                         'category_id',
                                                         event.target.value
                                                             ? Number(
-                                                                  event.target
-                                                                      .value,
-                                                              )
+                                                                event.target
+                                                                    .value,
+                                                            )
                                                             : '',
                                                     )
                                                 }
@@ -746,7 +743,7 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
                                                             message={
                                                                 questionForm
                                                                     .errors[
-                                                                    field
+                                                                field
                                                                 ]
                                                             }
                                                         />
@@ -1089,16 +1086,16 @@ export default function Ujian({ categories, questions, exams }: UjianProps) {
                                                                     event.target
                                                                         .checked
                                                                         ? [
-                                                                              ...selected,
-                                                                              question.id,
-                                                                          ]
+                                                                            ...selected,
+                                                                            question.id,
+                                                                        ]
                                                                         : selected.filter(
-                                                                              (
-                                                                                  id,
-                                                                              ) =>
-                                                                                  id !==
-                                                                                  question.id,
-                                                                          ),
+                                                                            (
+                                                                                id,
+                                                                            ) =>
+                                                                                id !==
+                                                                                question.id,
+                                                                        ),
                                                                 );
                                                             }}
                                                             className="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
