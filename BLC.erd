@@ -1,0 +1,168 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "originX": 0,
+    "originY": 0,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 4,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "lockSettings": 63
+  },
+  "doc": {
+    "tableIds": [
+      "03haz2s3lg4gpawhjnvcruaz2",
+      "03haz3yb7k0api9bmbz30e0gm",
+      "03haz4sw499n8p8zqoyuzr6fz",
+      "03haz4uttnl64ja7t713cqjre",
+      "03haz5qx6mzi0gh43cuwebd8s"
+    ]
+  },
+  "collections": {
+    "tableEntities": {
+      "03haz2s3lg4gpawhjnvcruaz2": {
+        "id": "03haz2s3lg4gpawhjnvcruaz2",
+        "name": "Admin",
+        "columnIds": [
+          "03haz33iwq03zr45xwta0xwel",
+          "03haz2t4nqonbhszri2h1tfj1",
+          "03haz326d98hkcchsazf18n3z",
+          "03haz359k53a29k0ky059d7jl",
+          "03haz39ztmyb8rofg2hpw5n3c"
+        ],
+        "ui": {
+          "x": 167,
+          "y": -31
+        }
+      },
+      "03haz3yb7k0api9bmbz30e0gm": {
+        "id": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "user",
+        "columnIds": [
+          "03haz41kujk6odzs8osaopxgu",
+          "03haz42e7rvy0wf1p5t08ozzr",
+          "03haz4333dq1pncoobv7p3vl4",
+          "03haz43std75itesg316283p0",
+          "03haz457a3h3mz6jeo6ocii92",
+          "03haz4jhb8stsl4dwwipjolpy"
+        ],
+        "ui": {
+          "x": 556,
+          "y": -39
+        }
+      },
+      "03haz4sw499n8p8zqoyuzr6fz": {
+        "id": "03haz4sw499n8p8zqoyuzr6fz",
+        "name": "test",
+        "columnIds": [],
+        "ui": {
+          "x": 562,
+          "y": 259
+        }
+      },
+      "03haz4uttnl64ja7t713cqjre": {
+        "id": "03haz4uttnl64ja7t713cqjre",
+        "name": "questions",
+        "columnIds": [],
+        "ui": {
+          "x": 552,
+          "y": 181
+        }
+      },
+      "03haz5qx6mzi0gh43cuwebd8s": {
+        "id": "03haz5qx6mzi0gh43cuwebd8s",
+        "name": "visitor_records",
+        "columnIds": [],
+        "ui": {
+          "x": 161,
+          "y": 178
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "03haz2t4nqonbhszri2h1tfj1": {
+        "id": "03haz2t4nqonbhszri2h1tfj1",
+        "tableId": "03haz2s3lg4gpawhjnvcruaz2",
+        "name": "username",
+        "options": 0
+      },
+      "03haz326d98hkcchsazf18n3z": {
+        "id": "03haz326d98hkcchsazf18n3z",
+        "tableId": "03haz2s3lg4gpawhjnvcruaz2",
+        "name": "password",
+        "options": 0
+      },
+      "03haz33iwq03zr45xwta0xwel": {
+        "id": "03haz33iwq03zr45xwta0xwel",
+        "tableId": "03haz2s3lg4gpawhjnvcruaz2",
+        "name": "id",
+        "options": 0
+      },
+      "03haz359k53a29k0ky059d7jl": {
+        "id": "03haz359k53a29k0ky059d7jl",
+        "tableId": "03haz2s3lg4gpawhjnvcruaz2",
+        "name": "name",
+        "options": 0
+      },
+      "03haz39ztmyb8rofg2hpw5n3c": {
+        "id": "03haz39ztmyb8rofg2hpw5n3c",
+        "tableId": "03haz2s3lg4gpawhjnvcruaz2",
+        "name": "role",
+        "options": 0
+      },
+      "03haz41kujk6odzs8osaopxgu": {
+        "id": "03haz41kujk6odzs8osaopxgu",
+        "tableId": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "id",
+        "options": 0
+      },
+      "03haz42e7rvy0wf1p5t08ozzr": {
+        "id": "03haz42e7rvy0wf1p5t08ozzr",
+        "tableId": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "name",
+        "options": 0
+      },
+      "03haz4333dq1pncoobv7p3vl4": {
+        "id": "03haz4333dq1pncoobv7p3vl4",
+        "tableId": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "nik",
+        "options": 0
+      },
+      "03haz43std75itesg316283p0": {
+        "id": "03haz43std75itesg316283p0",
+        "tableId": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "birthdate",
+        "options": 0
+      },
+      "03haz457a3h3mz6jeo6ocii92": {
+        "id": "03haz457a3h3mz6jeo6ocii92",
+        "tableId": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "address",
+        "options": 0
+      },
+      "03haz4jhb8stsl4dwwipjolpy": {
+        "id": "03haz4jhb8stsl4dwwipjolpy",
+        "tableId": "03haz3yb7k0api9bmbz30e0gm",
+        "name": "class",
+        "options": 0
+      }
+    }
+  }
+}
